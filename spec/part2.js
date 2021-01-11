@@ -55,7 +55,7 @@
         expect(tagCount.args[0]).to.have.length(1);
       });
 
-      it('should use recursion by calling self', function() {
+      xit('should use recursion by calling self', function() {
         tagCount('p')
         expect(tagCount.callCount).to.be.above(3);
       });
@@ -163,7 +163,7 @@
         });
       });
 
-      xit('should be invoked with two arguments', function() {
+      it('should be invoked with two arguments', function() {
         binarySearch(primes, 4);
         binarySearch.args.forEach(arg => {
           expect(arg).to.have.length(2);

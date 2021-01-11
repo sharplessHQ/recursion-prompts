@@ -418,7 +418,7 @@
       });
 
       // remove the 'x' to enable test
-      xit('optimize for even numbers', function() {
+      it('optimize for even numbers', function() {
         exponent(3,4);
         expect(exponent.callCount).to.be.at.most(4);
 
@@ -432,7 +432,7 @@
       });
 
       // remove the 'x' to enable test
-      xit('should accept negative integer for base', function() {
+      it('should accept negative integer for base', function() {
         expect(exponent(-3,4)).to.equal(81);
         expect(exponent(-12,5)).to.equal(-248832);
         expect(exponent(-7,2)).to.equal(49);
@@ -832,11 +832,11 @@
         expect(gcd(7, -36)).to.be.null;
         expect(gcd(-10, -58)).to.be.null;
         expect(gcd(-92, -5)).to.be.null;
-        // expect(gcd(0, 0)).to.be.null;
-        // expect(gcd(0, 5)).to.be.null;
-        // expect(gcd(5, 0)).to.be.null;
-        // expect(gcd(-5, 0)).to.be.null;
-        // expect(gcd(0, -5)).to.be.null;
+        expect(gcd(0, 0)).to.be.null;
+        expect(gcd(0, 5)).to.be.null;
+        expect(gcd(5, 0)).to.be.null;
+        expect(gcd(-5, 0)).to.be.null;
+        expect(gcd(0, -5)).to.be.null;
       });
 
       it('should use recursion by calling self', function() {
