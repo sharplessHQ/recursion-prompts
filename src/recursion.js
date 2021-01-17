@@ -541,25 +541,65 @@ var numToText = function(str) {
 // *** EXTRA CREDIT ***
 
 // 37. Return the number of times a tag occurs in the DOM.
+// var node = document.body;
 var tagCount = function(tag, node) {
 
-  var current = document.getElementsByTagName(tag);
-  return current.length;
+  // if (node === undefined) {
+  //   var node = document.body;
+  //   // var result = [];
 
-  // No idea on recursion...............................................................................................................................
-  // var current = document.getElementsByTagName(tag);
-  // var children = current.childNodes;
-  // var count = 0;
-  // for (var i = 0; i < current.length; i++) {
-  //   if (children === undefined) {
-  //     count++;
-  //   } else {
-  //     tagCount(tag, children);
-  //   }
   // }
-  // return count;
+  // if (node.nodeName && (node.nodeName === tag.toUpperCase())) {
+  //   result = result.concat([node.nodeName]);
+  // }
+  // if (node.hasChildNodes()) {
+  //   var children = node.childNodes;
+  //   children.forEach(function(item) {
+  //     tagCount(tag, item);
+  //   });
+  // }
+  // return result.length;
+  // // return result;
+
+
+  var node = document.body;
+  var result = [];
+  var filterNode = function(node) {
+    if (node.nodeName && node.nodeName === tag.toUpperCase()) {
+      result.push(node);
+    }
+    if (node.hasChildNodes()) {
+      var children = node.childNodes;
+      for (var i = 0; i < children.length; i ++) {
+        filterNode(children[i]);
+      }
+    }
+  };
+  filterNode(node);
+  return result.length;
+  // return result;
 
 };
+
+// var getElementsByClassName = function(className) {
+//   // your code here
+//   // Use document.body, element.childNodes, and element.classList in your solution
+//   var body = document.body;
+//   var result = [];
+//   var filterCalss = function(body) {
+//     if (body.classList && body.classList.contains(className)) {
+//       result.push(body);
+//     }
+//     if (body.hasChildNodes()) {
+//       var children = body.childNodes;
+//       for (var i = 0; i < children.length; i ++) {
+//         filterCalss(children[i]);
+//       }
+//     }
+//   };
+//   filterCalss(body);
+//   return result;
+// };
 
 // 38. Write a function for binary search.
 // var array = [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15];
